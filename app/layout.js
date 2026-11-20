@@ -1,0 +1,61 @@
+import "./globals.css";
+import { Montserrat, Inter } from "next/font/google";
+import Header from "../components/Header";
+import Footer from "../components/footer";
+import BottomContactBar from "../components/BottomContactBar";
+import MotionProvider from "../components/MotionProvider";
+import { SITE_URL } from "./utils/config";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-heading",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-body",
+});
+
+export const metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Phoenix Dental Care — Chitlapakkam, Chennai",
+    template: "%s | Phoenix Dental Care",
+  },
+  description:
+    "Dr. Divya's Phoenix Dental Care in Chitlapakkam, Chennai — gentle, advanced, and affordable dental care for all ages.",
+  openGraph: {
+    siteName: "Phoenix Dental Care",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "/images/Logo.jpeg",
+        width: 400,
+        height: 400,
+        alt: "Phoenix Dental Care",
+      },
+    ],
+  },
+};
+
+export const viewport = {
+  themeColor: "#ec4899",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+      <body className="pb-20 md:pb-0">
+        <MotionProvider>
+          <Header />
+          {children}
+          <Footer />
+          <BottomContactBar />
+        </MotionProvider>
+      </body>
+    </html>
+  );
+}

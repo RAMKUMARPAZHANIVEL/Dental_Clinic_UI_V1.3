@@ -1,0 +1,78 @@
+// Official website address. Override with NEXT_PUBLIC_SITE_URL (e.g. for a preview deploy).
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://drdivyaphoenixdental.com").replace(/\/+$/, "");
+
+// Absolute URL for a page path, in the trailing-slash form the site serves (see next.config.js).
+export function absoluteUrl(path = "/") {
+  const trimmed = path.replace(/^\/+|\/+$/g, "");
+  return trimmed ? `${SITE_URL}/${trimmed}/` : `${SITE_URL}/`;
+}
+
+// Date the site content was last updated — used as the sitemap lastModified. Update when pages change.
+export const CONTENT_UPDATED = "2026-10-25";
+
+export const Experience_count = 10;
+export const Client_count = 1000;
+
+export const Offers = [
+    "Free consultation on your first visit",
+    "Upto 700 on your first treatment",
+    "Referal program: Refer three family and friendsand they get three polishing on their first visit",
+]
+
+const message = `
+Hello Dr. Divya's Phoenix Dental Care 👋
+
+I would like to book an appointment.
+
+Name:
+Mobile Number:
+Preferred Date:
+Preferred Time:
+Treatment Required:
+
+Thank you.
+`;
+
+export const testimonials = [
+  {
+    name: "Suresh Kumar",
+    treatment: "Root Canal Treatment",
+    review:
+      "Dr Divya explained the procedure clearly and made me feel very comfortable. Completely painless experience!",
+  },
+  {
+    name: "Priya R",
+    treatment: "Teeth Whitening",
+    review:
+      "The clinic is very clean and modern. My smile looks amazing now. Highly recommended!",
+  },
+  {
+    name: "Arun S",
+    treatment: "Dental Implant",
+    review:
+      "Professional treatment and friendly staff. One of the best dental clinics in Chitlapakkam.",
+  },
+];
+
+export const whatsappUrl = `https://wa.me/919003226380?text=${encodeURIComponent(message)}`;
+
+export const practiceInfo = {
+  name: "Dr. Divya's Phoenix Dental Care",
+  tagline: "Dr. Divya's Phoenix Dental Care",
+  address: "No 58/60, Ground Floor, Anna Street, Chitlapakkam, Chennai - 600064",
+  phone: "+91 90032 26380",
+  email: "phoenixdentalc@gmail.com",
+  openingHours: ["Monday – Saturday: 9:00 AM – 8:00 PM", "Sunday: By Appointment Only"],
+  mapUrl: "https://maps.google.com/?q=Phoenix+Dental+Care+Chitlapakkam+Chennai",
+  // Structured address and location, used for Google's clinic details (structured data).
+  postalAddress: {
+    streetAddress: "No 58/60, Ground Floor, Anna Street",
+    addressLocality: "Chitlapakkam",
+    addressRegion: "Tamil Nadu",
+    postalCode: "600064",
+    addressCountry: "IN",
+  },
+  geo: { latitude: 12.9368428, longitude: 80.1417894 },
+  // Google Maps listing (place ID from the clinic's Google review link).
+  googleMapsUrl: "https://www.google.com/maps/place/?q=place_id:ChIJiV6ivnRfUjoRQmSXsFhprSk",
+};
