@@ -26,23 +26,35 @@ export default function Footer() {
           <p className="text-sm text-gray-500 mb-6">
             Gentle, advanced, and affordable dental care for confident smiles.
           </p>
-          <div className="flex space-x-4 text-gray-600">
-            <FaFacebookF className="hover:text-pink-500 cursor-pointer transition" />
-            <FaTwitter className="hover:text-pink-500 cursor-pointer transition" />
-            <a target="_blank" rel="noopener noreferrer" aria-label={`${practiceInfo.name} on Instagram`} href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=ulrhf7o">
-              <FaInstagram className="hover:text-pink-500 cursor-pointer transition" />
+          <div className="flex text-gray-600">
+            <span className="inline-flex items-center justify-center min-h-[44px] min-w-[44px]">
+              <FaFacebookF className="hover:text-pink-500 cursor-pointer transition" />
+            </span>
+            <span className="inline-flex items-center justify-center min-h-[44px] min-w-[44px]">
+              <FaTwitter className="hover:text-pink-500 cursor-pointer transition" />
+            </span>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${practiceInfo.name} on Instagram`}
+              href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=ulrhf7o"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] hover:text-pink-500 transition"
+            >
+              <FaInstagram />
             </a>
-            <FaLinkedinIn className="hover:text-pink-500 cursor-pointer transition" />
+            <span className="inline-flex items-center justify-center min-h-[44px] min-w-[44px]">
+              <FaLinkedinIn className="hover:text-pink-500 cursor-pointer transition" />
+            </span>
           </div>
         </div>
 
         {/* Navigation */}
         <div className="md:col-span-1">
           <h2 className="font-semibold mb-4">Clinic</h2>
-          <ul className="space-y-2 text-sm text-gray-600">
+          <ul className="text-sm text-gray-600">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-primary transition">
+                <Link href={link.href} className="block py-3 hover:text-primary transition">
                   {link.name}
                 </Link>
               </li>
@@ -53,12 +65,12 @@ export default function Footer() {
         {/* Services quick links */}
         <div className="md:col-span-1">
           <h2 className="font-semibold mb-4">Services</h2>
-          <ul className="space-y-2 text-sm text-gray-600">
-            <li><Link href="/services/preventive-dentistry" className="hover:text-primary transition">Preventive Dentistry</Link></li>
-            <li><Link href="/services/cosmetic-dentistry" className="hover:text-primary transition">Cosmetic Dentistry</Link></li>
-            <li><Link href="/services/orthodontics" className="hover:text-primary transition">Orthodontics</Link></li>
-            <li><Link href="/services/root-canal-treatment" className="hover:text-primary transition">Root Canal Treatment</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition font-medium">View all treatments →</Link></li>
+          <ul className="text-sm text-gray-600">
+            <li><Link href="/services/preventive-dentistry" className="block py-3 hover:text-primary transition">Preventive Dentistry</Link></li>
+            <li><Link href="/services/cosmetic-dentistry" className="block py-3 hover:text-primary transition">Cosmetic Dentistry</Link></li>
+            <li><Link href="/services/orthodontics" className="block py-3 hover:text-primary transition">Orthodontics</Link></li>
+            <li><Link href="/services/root-canal-treatment" className="block py-3 hover:text-primary transition">Root Canal Treatment</Link></li>
+            <li><Link href="/services" className="block py-3 hover:text-primary transition font-medium">View all treatments →</Link></li>
           </ul>
         </div>
 

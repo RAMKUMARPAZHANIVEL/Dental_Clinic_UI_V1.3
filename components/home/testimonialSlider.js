@@ -48,15 +48,20 @@ export default function TestimonialSlider() {
         ))}
       </div>
 
-      <div className="flex justify-center gap-2 mt-4">
+      <div className="flex justify-center mt-4">
         {testimonials.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-2 rounded-full transition-all ${
-              index === i ? "bg-primary w-6" : "bg-gray-300 w-2"
-            }`}
-          />
+            aria-label={`Go to testimonial ${i + 1}`}
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center"
+          >
+            <span
+              className={`h-2 rounded-full transition-all ${
+                index === i ? "bg-primary w-6" : "bg-gray-300 w-2"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
