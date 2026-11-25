@@ -15,6 +15,7 @@ export default function MapRedirect() {
     >
       <iframe
         src={`https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`}
+        title="Map showing the clinic location"
         className="w-full h-full pointer-events-none"
         loading="lazy"
       />

@@ -15,7 +15,19 @@ const nextConfig = {
   // Match the live site, which serves page URLs with a trailing slash (e.g. /about/).
   trailingSlash: true,
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Long-term browser cache for photos (audit P-series). Mirrors netlify.toml.
+      // No `immutable` — image files may be replaced at the same URL during optimisation (task 2).
+      {
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000" }],
+      },
+    ];
+  },
+  images: {
+    // Cache Next.js-optimised images (/_next/image) in the browser for one year.
+    minimumCacheTTL: 31536000,
   },
 };
 
