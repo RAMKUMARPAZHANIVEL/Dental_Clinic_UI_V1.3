@@ -4,18 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import FadeUp from "../app/utils/animations/FadeUp";
 import { Client_count, Experience_count } from "../app/utils/config";
 
-function Counter({ target, label, suffix = "+" }) {
-  const [count, setCount] = useState(0);
+function Counter({ target, label, suffix = "+", animate = true }) {
+  const [count, setCount] = useState(target);
   const ref = useRef(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
+    if (!animate) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
 
           let start = 0;
+          setCount(0);
           const duration = 1500; // ms
           const stepTime = 20;
           const steps = duration / stepTime;
@@ -37,7 +40,7 @@ function Counter({ target, label, suffix = "+" }) {
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [target]);
+  }, [target, animate]);
 
   return (
     <div ref={ref} className="text-center">
@@ -54,10 +57,10 @@ export default function Stats() {
   return (
     <section className="bg-emerald-500 text-white py-32 flex flex-col gap-12 items-center">
       <FadeUp delay={0.1}>
-        <Counter target={Experience_count} label="Years of Experience" />
+        <Counter target={Experience_count} label="Years of Experience" animate={false} />
       </FadeUp>
       <FadeUp delay={0.5}>
-        <Counter target={Client_count} label="Smiling Clients" />
+        <Counter target={Client_count} label="Smiling Clients" animate={false} />
       </FadeUp>
     </section>
   );
