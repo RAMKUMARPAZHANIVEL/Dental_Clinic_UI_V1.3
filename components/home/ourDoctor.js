@@ -1,5 +1,5 @@
 import React from 'react'
-import DoctorProfile from "../../public/images/doctor_profile.svg";
+import DoctorIllustration from './DoctorIllustration';
 import { whatsappUrl } from '../../app/utils/config';
 
 const OurDoctor = () => {
@@ -30,7 +30,7 @@ const OurDoctor = () => {
                 </a>
             </div>
             <div>
-                <img className='w-80 hidden lg:block' src="../../images/doctor_profile.svg" alt="Illustration of a dentist holding dental instruments" />
+                <DoctorIllustration />
             </div>
         </div>
      </div>
